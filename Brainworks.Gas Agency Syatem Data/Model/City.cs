@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Brainworks.Gas_Agency_Syatem_Data
+namespace Brainworks.Gas_Agency_Syatem_Data.Model
 {
-  public  class Gas_Agency_System_Context
+   public class City
     {
     }
 }
