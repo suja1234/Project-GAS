@@ -1,6 +1,6 @@
 ﻿namespace BrainWorks.GAS.Data
 {
-	public class Documents
+	public class ConnectionDetails
 	{
 	}
 }

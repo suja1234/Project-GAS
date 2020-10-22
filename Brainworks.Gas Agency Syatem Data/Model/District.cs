@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Brainworks.Gas_Agency_Syatem_Data.Model
+﻿namespace BrainWorks.GAS.Data
 {
-  public  class District
-    {
-    }
+	public class District
+	{
+	}
 }
