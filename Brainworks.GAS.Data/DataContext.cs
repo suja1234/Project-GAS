@@ -10,6 +10,7 @@ namespace BrainWorks.GAS.Data
     public class DataContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<State> States { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder OptionsBuilder)
         {
             string connectionString = "Data Source=DESKTOP-4QP868O\\SQLEXPRESS;Initial Catalog=BrainWork;Integrated Security=True";
@@ -33,6 +34,9 @@ namespace BrainWorks.GAS.Data
             modelBuilder.Entity<User>().Property(b => b.Pincode).HasColumnType("varchar(6)").IsRequired();
             modelBuilder.Entity<User>().Property(b => b.Mobile).HasColumnType("varchar(20)").IsRequired();
             modelBuilder.Entity<User>().Property(b => b.Email).HasColumnType("varchar(50)");
+
+            modelBuilder.Entity<State>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<State>().Property(b => b.ShortCode).HasColumnType("varchar(10)");
         }
     }
 }
