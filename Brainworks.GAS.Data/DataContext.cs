@@ -35,8 +35,16 @@ namespace BrainWorks.GAS.Data
             modelBuilder.Entity<User>().Property(b => b.Mobile).HasColumnType("varchar(20)").IsRequired();
             modelBuilder.Entity<User>().Property(b => b.Email).HasColumnType("varchar(50)");
 
+            //state
             modelBuilder.Entity<State>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
             modelBuilder.Entity<State>().Property(b => b.ShortCode).HasColumnType("varchar(10)");
+
+            //District
+            modelBuilder.Entity<District>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<State>().Property(b => b.ShortCode).HasColumnType("varchar(10)").IsRequired();
+
+
+
         }
     }
 }
