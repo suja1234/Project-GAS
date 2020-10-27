@@ -35,16 +35,33 @@ namespace BrainWorks.GAS.Data
             modelBuilder.Entity<User>().Property(b => b.Mobile).HasColumnType("varchar(20)").IsRequired();
             modelBuilder.Entity<User>().Property(b => b.Email).HasColumnType("varchar(50)");
 
-            //state
+            //State
             modelBuilder.Entity<State>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
             modelBuilder.Entity<State>().Property(b => b.ShortCode).HasColumnType("varchar(10)");
 
             //District
             modelBuilder.Entity<District>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
-            modelBuilder.Entity<State>().Property(b => b.ShortCode).HasColumnType("varchar(10)").IsRequired();
+            modelBuilder.Entity<District>().Property(b => b.ShortCode).HasColumnType("varchar(10)").IsRequired();
 
+            //City
+            modelBuilder.Entity<City>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<City>().Property(b => b.ShortCode).HasColumnType("varchar(10)").IsRequired();
 
+            //ConnectionType
+            modelBuilder.Entity<ConnectionType>().Property(b => b.Name).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<ConnectionType>().Property(b => b.Description).HasColumnType("varchar(100)").IsRequired();
+            modelBuilder.Entity<ConnectionType>().Property(b => b.RefillCharge).HasColumnType("money").IsRequired();
+            modelBuilder.Entity<ConnectionType>().Property(b => b.NewConnectionCharge).HasColumnType("money").IsRequired();
 
+            //Documents
+            modelBuilder.Entity<Documents>().Property(b => b.Document).HasColumnType("binary").IsRequired();
+            modelBuilder.Entity<Documents>().Property(b => b.Type).HasColumnType("varchar").IsRequired();
+
+            //BookingDetails
+            modelBuilder.Entity<BookingDetails>().Property(b => b.BookedDate).HasColumnType("datetime").IsRequired();
+            modelBuilder.Entity<BookingDetails>().Property(b => b.DeliveredDate).HasColumnType("datetime").IsRequired();
+            modelBuilder.Entity<BookingDetails>().Property(b => b.Status).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<BookingDetails>().Property(b => b.Amount).HasColumnType("money").IsRequired();
         }
     }
 }
