@@ -1,6 +1,8 @@
 ﻿using System;
-using System.Data.SqlTypes;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Text;
+
 namespace BrainWorks.GAS.Data
 {
 	public class ConnectionDetails
@@ -9,12 +11,12 @@ namespace BrainWorks.GAS.Data
 		public int UserId { get; set; }
 		public int ConnectionTypeId { get; set; }
 		public int ConsumerNumber { get; set; }
-		public varchar ConsumerName { get; set; }
-		public varchar DeliveryAddress { get; set; }
-		public dateTime ConnectionRequestDate { get; set; }
-		public datetime ConnectionApprovedDate { get; set; }
-		public money DepositAmount { get; set; }
+		public string ConsumerName { get; set; }
+		public string DeliveryAddress { get; set; }
+		public DateTime ConnectionRequestDate { get; set; }
+		public DateTime ConnectionApprovedDate { get; set; }
+		public int DepositAmount { get; set; }
 		public int Regulator { get; set; }
-		public varchar Status { get; set; }
+		public string Status { get; set; }
 	}
 }
