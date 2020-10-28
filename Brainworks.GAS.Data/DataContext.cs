@@ -4,6 +4,7 @@ using System.Text;
 using System.Data;
 using BrainWorks.GAS.Data;
 using Microsoft.EntityFrameworkCore;
+using Brainworks.Gas.Agency.System.Data;
 
 namespace BrainWorks.GAS.Data
 {
@@ -11,6 +12,15 @@ namespace BrainWorks.GAS.Data
     {
         public DbSet<User> Users { get; set; }
         public DbSet<State> States { get; set; }
+        public DbSet<District> Districts { get; set; }
+        public DbSet<City> Cities { get; set; } 
+        public DbSet<ConnectionType> ConnectionTypes { get; set; }
+        public DbSet<ConnectionDetails> ConnectionDetails { get; set; }
+        public DbSet<Documents> Documents { get; set; }
+        public DbSet<BookingDetails> BookingDetails { get; set; }
+        public DbSet<SiteContent> SiteContents { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder OptionsBuilder)
         {
             string connectionString = "Data Source=DESKTOP-4QP868O\\SQLEXPRESS;Initial Catalog=BrainWork;Integrated Security=True";
@@ -53,6 +63,16 @@ namespace BrainWorks.GAS.Data
             modelBuilder.Entity<ConnectionType>().Property(b => b.RefillCharge).HasColumnType("money").IsRequired();
             modelBuilder.Entity<ConnectionType>().Property(b => b.NewConnectionCharge).HasColumnType("money").IsRequired();
 
+            //ConnectionDetails
+            modelBuilder.Entity<ConnectionDetails>().Property(b => b.ConsumerNumber).HasColumnType("int").IsRequired();
+            modelBuilder.Entity<ConnectionDetails>().Property(b => b.ConsumerName).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<ConnectionDetails>().Property(b => b.DeliveryAddress).HasColumnType("varchar(100)").IsRequired();
+            modelBuilder.Entity<ConnectionDetails>().Property(b => b.ConnectionRequestDate).HasColumnType("datetime").IsRequired();
+            modelBuilder.Entity<ConnectionDetails>().Property(b => b.ConnectionApprovedDate).HasColumnType("datetime").IsRequired();
+            modelBuilder.Entity<ConnectionDetails>().Property(b => b.DepositAmount).HasColumnType("money").IsRequired();
+            modelBuilder.Entity<ConnectionDetails>().Property(b => b.Regulator).HasColumnType("int").IsRequired();
+            modelBuilder.Entity<ConnectionDetails>().Property(b => b.Status).HasColumnType("varchar(50)").IsRequired();
+
             //Documents
             modelBuilder.Entity<Documents>().Property(b => b.Document).HasColumnType("binary").IsRequired();
             modelBuilder.Entity<Documents>().Property(b => b.Type).HasColumnType("varchar").IsRequired();
@@ -62,6 +82,11 @@ namespace BrainWorks.GAS.Data
             modelBuilder.Entity<BookingDetails>().Property(b => b.DeliveredDate).HasColumnType("datetime").IsRequired();
             modelBuilder.Entity<BookingDetails>().Property(b => b.Status).HasColumnType("varchar(50)").IsRequired();
             modelBuilder.Entity<BookingDetails>().Property(b => b.Amount).HasColumnType("money").IsRequired();
+
+            //SiteContent
+            modelBuilder.Entity<SiteContent>().Property(b => b.Reference).HasColumnType("varchar(100)").IsRequired();
+            modelBuilder.Entity<SiteContent>().Property(b => b.Key).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<SiteContent>().Property(b => b.Value).HasColumnType("varchar(500)").IsRequired();
         }
     }
 }
