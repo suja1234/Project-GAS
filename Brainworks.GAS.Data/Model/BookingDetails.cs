@@ -10,7 +10,7 @@ namespace BrainWorks.GAS.Data
 		public DateTime BookedDate {get; set;} 
 		public DateTime DeliveredDate {get; set;} 
 		public string Status {get; set;} 
-		public int Money {get;set;}
+		public int Amount {get;set;}
 
 	}
 }
