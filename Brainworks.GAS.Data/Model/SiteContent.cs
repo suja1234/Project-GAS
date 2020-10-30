@@ -1,7 +1,7 @@
 ﻿
 namespace Brainworks.Gas.Agency.System.Data
 {
-    class SiteContent
+   public class SiteContent
     {
         public int Id { get; set; }
         public string Reference { get; set; }

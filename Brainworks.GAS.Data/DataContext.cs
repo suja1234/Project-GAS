@@ -74,8 +74,8 @@ namespace BrainWorks.GAS.Data
             modelBuilder.Entity<ConnectionDetails>().Property(b => b.Status).HasColumnType("varchar(50)").IsRequired();
 
             //Documents
-            modelBuilder.Entity<Documents>().Property(b => b.Document).HasColumnType("binary").IsRequired();
-            modelBuilder.Entity<Documents>().Property(b => b.Type).HasColumnType("varchar").IsRequired();
+           /* modelBuilder.Entity<Documents>().Property(b => b.Document).HasColumnType("binary").IsRequired();
+            modelBuilder.Entity<Documents>().Property(b => b.Type).HasColumnType("varchar").IsRequired();*/
 
             //BookingDetails
             modelBuilder.Entity<BookingDetails>().Property(b => b.BookedDate).HasColumnType("datetime").IsRequired();
